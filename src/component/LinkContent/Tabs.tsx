@@ -8,7 +8,7 @@ export default function UpdateHistory({ navigation }: Links) {
       {navigation === 1 && (
         <section>
           <div className="upper flex justify-between my-4">
-            <h2 className="pl-4">Update History</h2>
+            <h2 className="pl-4">Update test</h2>
             <button className="mr-4 w-24 h-8 bg-teal-500 text-semibold text-white rounded">
               Update
             </button>
