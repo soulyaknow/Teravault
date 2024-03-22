@@ -81,7 +81,7 @@ export default function CoreStatus() {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col space-x-1 pl-60 pt-2">
+                <div className="flex flex-col pl-60 pt-2">
                   <div className="text-left">
                     <h2 className="text-[24px] text-green-400">COMPLETED</h2>
                   </div>
