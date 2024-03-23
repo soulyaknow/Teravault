@@ -1,12 +1,15 @@
-import { Timeline, ConfigProvider } from "antd";
 import { UsergroupAddOutlined } from "@ant-design/icons";
 import Chats from "../ChatContent/Chats";
 import DropdownModal from "../ModalContent/DropdownModal";
 import { useState } from "react";
-interface Links {
+import UpdateContent from "../UpdateContent/UpdateContent";
+import Comment from "../NotesContent/Comment";
+import FileUpload from "../FileContent/FileUpload";
+
+interface Tabs {
   navigation: number;
 }
-export default function UpdateHistory({ navigation }: Links) {
+export default function UpdateHistory({ navigation }: Tabs) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -25,117 +28,34 @@ export default function UpdateHistory({ navigation }: Links) {
             </button>
           </div>
           <div className="lower flex justify-center items-center w-full">
-            <ConfigProvider
-              theme={{
-                components: {
-                  Timeline: {
-                    dotBorderWidth: 6,
-                    tailWidth: 3,
-                    itemPaddingBottom: 100,
-                  },
-                },
-              }}
-            >
-              <Timeline
-                className="pt-20 w-full"
-                mode="left"
-                items={[
-                  {
-                    label: (
-                      <>
-                        <div className="flex flex-col text-green-500 text-left pl-[350px]  font-normal">
-                          <span className="font-bold">November 21, 2023</span>
-                          <span>10: 30 AM</span>
-                          <span>Tuesday</span>
-                        </div>
-                      </>
-                    ),
-                    color: "green",
-                    children: (
-                      <>
-                        <div className="text-green-500 text-left pl-28">
-                          <p>"Report updates for all users and cases..."</p>
-                        </div>
-                      </>
-                    ),
-                  },
-                  {
-                    label: (
-                      <>
-                        <div className="flex flex-col text-left pl-[350px] font-normal">
-                          <span className="font-bold text-gray-600">
-                            November 21, 2023
-                          </span>
-                          <span className="text-custom-text-gray">
-                            10: 30 AM
-                          </span>
-                          <span className="text-custom-text-gray">Tuesday</span>
-                        </div>
-                      </>
-                    ),
-                    color: "gray",
-                    children: (
-                      <>
-                        <div className="text-left pl-28">
-                          <p>"Report updates for all users and cases..."</p>
-                        </div>
-                      </>
-                    ),
-                  },
-                  {
-                    label: (
-                      <>
-                        <div className="flex flex-col text-left pl-[350px] font-normal">
-                          <span className="font-bold text-gray-600">
-                            November 21, 2023
-                          </span>
-                          <span className="text-custom-text-gray">
-                            10: 30 AM
-                          </span>
-                          <span className="text-custom-text-gray">Tuesday</span>
-                        </div>
-                      </>
-                    ),
-                    color: "gray",
-                    children: (
-                      <>
-                        <div className="text-left pl-28">
-                          <p>"Report updates for all users and cases..."</p>
-                        </div>
-                      </>
-                    ),
-                  },
-                  {
-                    label: (
-                      <>
-                        <div className="flex flex-col text-left pl-[350px] font-normal">
-                          <span className="font-bold text-gray-600">
-                            November 21, 2023
-                          </span>
-                          <span className="text-custom-text-gray">
-                            10: 30 AM
-                          </span>
-                          <span className="text-custom-text-gray">Tuesday</span>
-                        </div>
-                      </>
-                    ),
-                    color: "gray",
-                    children: (
-                      <>
-                        <div className="text-left pl-28">
-                          <p>"Report updates for all users and cases..."</p>
-                        </div>
-                      </>
-                    ),
-                  },
-                ]}
-              />
-            </ConfigProvider>
+            <UpdateContent />
           </div>
         </section>
       )}
-      {navigation === 2 && <section>2</section>}
-      {navigation === 3 && <section>3</section>}
+      {navigation === 2 && (
+        <section>
+          <div className="upper flex justify-between my-4">
+            <h2 className="pl-4">Notes/Comments</h2>
+          </div>
+          <div className="lower flex flex-col justify-between w-full h-full">
+            <div className="flex space-x-4 mx-8">
+              <Comment />
+            </div>
+          </div>
+        </section>
+      )}
+      {navigation === 3 && (
+        <section>
+          <div className="upper flex justify-between my-4">
+            <h2 className="pl-4">Files</h2>
+          </div>
+          <div className="lower flex flex-col justify-between w-full h-full">
+            <div className="flex flex-col space-x-4 mx-8">
+              <FileUpload />
+            </div>
+          </div>
+        </section>
+      )}
       {navigation === 4 && (
         <section>
           <div className="upper flex justify-between my-4">
@@ -146,7 +66,7 @@ export default function UpdateHistory({ navigation }: Links) {
             />
             <DropdownModal open={open} close={handleClose} />
           </div>
-          <div className="lower flex flex-col justify-between w-full">
+          <div className="lower flex flex-col justify-between w-full h-full">
             <div className="flex space-x-4 mx-8">
               <Chats state={navigation} />
             </div>
@@ -157,7 +77,11 @@ export default function UpdateHistory({ navigation }: Links) {
         <section>
           <div className="upper flex justify-between my-4">
             <h2 className="pl-4">Internal Collaboration</h2>
-            <UsergroupAddOutlined className="mr-4 text-semibold text-[24px] cursor-pointer" />
+            <UsergroupAddOutlined
+              className="mr-4 text-semibold text-[24px] cursor-pointer"
+              onClick={handleOpen}
+            />
+            <DropdownModal open={open} close={handleClose} />
           </div>
           <div className="lower flex flex-col justify-between w-full">
             <div className="flex space-x-4 mx-8">

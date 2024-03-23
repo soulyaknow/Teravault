@@ -1,4 +1,9 @@
-import { RobotFilled, SendOutlined, SmileTwoTone } from "@ant-design/icons";
+import {
+  FilePdfOutlined,
+  RobotFilled,
+  SendOutlined,
+  SmileTwoTone,
+} from "@ant-design/icons";
 import React, { useState } from "react";
 import ConfirmationModal from "../ModalContent/ConfirmationModal";
 
@@ -20,8 +25,8 @@ export default function Chats({ state }: State) {
 
   return (
     <>
-      <div className="message border shadow-md text-custom-text-gray w-[80%]">
-        <div className="chat-box mt-20 overflow-y-auto space-y-10 space-x-4">
+      <div className="message border shadow-md text-custom-text-gray w-[80%] ">
+        <div className="chat-box mt-20 space-y-10 space-x-4 overflow-y-auto">
           <div className="message-sender mb-2 flex justify-end pr-4">
             <div className="flex flex-col">
               <p className="bg-blue-100 p-4 inline-block rounded-b-lg rounded-tl-lg break-words w-96">
@@ -39,8 +44,12 @@ export default function Chats({ state }: State) {
               <RobotFilled />
             </div>
             <div className="flex flex-col">
-              <p className="bg-violet-50 p-4 inline-block rounded-b-lg rounded-tr-lg break-words w-96">
-                i would like to check on the status on this report
+              <p className="bg-violet-50 p-4 flex rounded-b-lg rounded-tr-lg break-words w-96 flex-col">
+                i would like to check on the status on this report.
+                <span className="pt-2">
+                  <FilePdfOutlined className="text-[32px]" />
+                  text.pdf
+                </span>
               </p>
               <span className="date text-[10px] pt-1 pl-2">
                 27th Aug MM 12:40

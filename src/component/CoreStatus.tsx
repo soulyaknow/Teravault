@@ -83,7 +83,9 @@ export default function CoreStatus() {
                 </div>
                 <div className="flex flex-col pl-60 pt-2">
                   <div className="text-left">
-                    <h2 className="text-[24px] text-green-400">COMPLETED</h2>
+                    <h2 className="md:text-[24px] text-[16px] text-green-400">
+                      COMPLETED
+                    </h2>
                   </div>
                   <div className="text-left">
                     <span className="text-[14px] text-custom-text-gray">
@@ -145,7 +147,7 @@ export default function CoreStatus() {
               Reports Logs
             </a>
           </div>
-          <section className="border h-screen mx-10 shadow-md">
+          <section className="border h-full mx-10 shadow-md">
             <Tabs navigation={activeTab} />
           </section>
         </div>
